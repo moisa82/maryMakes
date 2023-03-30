@@ -12,7 +12,9 @@ body{
 
 nav{
     width: 100vw;
-    min-height: 24.3vh;
+    z-index: 2;
+    min-height: 13.78vw;
+    max-height: 24.3vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,13 +22,15 @@ nav{
     background-color: #FEE9E8;
     left: 0;
     top: 0;
+    box-shadow: 0 0 70px -35px #B326CC;
 }
 
-#element{
-    font-size: 31px;
-    font-weight: bold;
-    cursor: pointer;
+.nav_mobile{
     display: none;
+}
+
+.hidden{
+    visibility: hidden;
 }
 
 ul{
@@ -36,7 +40,7 @@ ul{
     border-top: 2px solid #B326CC;
     border-bottom: 2px solid #B326CC;
     width: 38.7%;
-    height: 6.3vh;
+    height: 4.1vw;
     text-align: center;
 }
 
@@ -62,8 +66,7 @@ li:hover{
 }
 
 .logo{
-    max-width: 22vh;
-    width: 14.3vw;
+    height: 11vw;
     cursor: pointer;
 }
 
@@ -94,17 +97,223 @@ li:hover{
 }
 
 
+/* section offer */
+
+.offer{
+    width: 100vw;
+    margin-top: 13.78vw;
+}
+
+.offer img{
+    width: 100%;
+}
+
+.offer_mobile{
+    display: none;
+}
+
+.text_mobile{
+    display: none;
+}
+
+.button{
+    padding-left: 4.79vw;
+    margin-top: 0.6vw;
+}
+
+button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4vw;
+    width: 5vw;
+    height: 1.8vw;
+    border: none;
+    border-radius: 3vw;
+    background-color: #FEE9E8;
+    box-shadow: 0 0 11px 1px #a9a6a6;
+    font-size: 1vw;
+    color: #a9a6a6;
+    cursor: pointer;
+}
+
+/* section of products */
+
+.containerProd{
+    width: 92.4vw;
+    height: auto;
+    margin: auto;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    overflow-y: auto;
+}
+
+.cardProd {
+    width: 16.5vw;
+    display: flex;
+    height: 20.8vw;
+    margin: 0.99vw;
+    position: relative;
+    background-color: white;
+    border-radius: 0 20px 0 20px;
+    box-shadow: 0 0 11px 1px #a9a6a6;
+    padding: 17px;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardProd:hover{
+    scale: 1.08;
+    transition: .6s;
+    cursor: pointer;
+}
+
+.cartFav{
+    width: 90%;
+    display: flex;
+    color: #FF7170;
+    position: absolute;
+    top: 0.93vw;
+    z-index: 1;
+    justify-content: space-between;
+}
+
+.cartFav i{
+    font-size: 2.6vw;
+    cursor: pointer;
+}
+
+.prodImg{
+    width: 90%;
+    position: absolute;
+    display: flex;
+    top: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.prodImg img{
+    height: 16vw;
+    margin-top: 0.9vw;
+}
+
+.infoProd{
+    width: 90%;
+    display: flex;
+    color: red;
+    position: absolute;
+    bottom: 0.93vw;
+}
+
+
+.prodNameBrand{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+.brand{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.27vw;
+}
+
+.nameProd{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.725vw;
+    text-decoration: underline;
+}
+
+
+.priceProd{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.45vw;
+}
+
 @media(max-width: 1000px){
     nav{
-        width: 100vw;
-        height: 200px;
+        display: none;
+    }
+
+    .nav_mobile{
+        z-index: 2;
+        background-color: #FF7170;
         display: flex;
-        justify-content: space-evenly;
-        align-items: center;
+        padding: 3.79vw;
+        position: fixed;
+        width: 100vw;
+        justify-content: space-between;
+    }
+
+    .nav_mobile img{
+        width: 4vw;
+    }
+
+    .nav_mobile p{
+        font-size: 4.3vw;
+        font-family: cursive;
     }
 
     #element{
         display: block;
+    }
+
+    .offer{
+        display: none;
+    }
+
+    .offer_mobile{
+        display: flex;
+        width: 100vw;
+        height: 33vw;
+        background-position: center;
+        background-size: cover;
+        background-image: url(../img/offerBanner_mobile.png);
+        border-bottom: 2px solid #B326CC;
+    }
+
+    .offer_mobile img{
+        height: 21vw;
+        top: 20vw;
+        left: 39vw;
+        position: absolute;
+    }
+
+    .text_mobile{
+        display: flex;
+        font-family: 'Ubuntu';
+        font-weight: 400;
+        font-size: 3.1vw;
+        text-align: center;
+        color: #3A0706;
+        justify-content: center;
+        margin-top: 9vw;
+    }
+
+    .text_mobile p{
+        width: 58vw;
+    }
+
+    .button {
+        padding-left: 6.8vw;
+        margin-top: 0.6vw;
+        margin-bottom: 0.6vw;
+    }
+
+    button{
+        gap: 0.72vw;
+        width: 9vw;
+        height: 3.24vw;
+        font-size: 1.8vw;
     }
 
     @keyframes enterMenu {
@@ -162,113 +371,112 @@ li:hover{
         animation: none;    
         background-color:  #e7d3d2;
     }
+
+    .containerProd{
+        width: 88.8vw;
+    }
+    
+    .cardProd {
+        width: 19.8vw;
+        height: 25vw;
+        margin: 1.2vw;
+    }
+
+    .cartFav{
+        top: 1.11vw;
+    }
+    
+    .cartFav i{
+        font-size: 2.6vw;
+    }
+    
+    .prodImg img{
+        height: 19.2vw;
+        margin-top: 1.08vw;
+    }
+    
+    .infoProd{
+        bottom: 1.11vw;
+    }
+    
+    .brand{
+        font-size: 1.53vw;
+    }
+    
+    .nameProd{
+        font-size: 0.87vw;
+    }
+    
+    .priceProd{
+        font-size: 1.74vw;
+    }
 }
 
-/* section offer */
+@media(max-width: 600px){
+    .offer_mobile img{
+        height: 25vw;
+        top: 17vw;
+        left: 36vw;
+    }
 
-.offer{
-    width: 100vw;
-    margin-top: 23.4vh;
-}
+    .text_mobile{
+        font-size: 3.8vw;
+        margin-top: 10vw;
+        margin-bottom: 3vw;
+    }
 
-.offer img{
-    width: 100%;
-}
+    .text_mobile p{
+        width: 63vw;
+    }
 
-/* section of products */
+    .button{
+        padding-left: 8vw;
+    }
+    
+    button{
+        gap: 1.44vw;
+        width: 18vw;
+        height: 6.48vw;
+        font-size: 3.6vw;
+    }
 
-.containerProd{
-    width: 100vw;
-    height: auto;
-    padding: 6vh;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 24px;
-    overflow-y: auto;
-}
+    .containerProd{
+        width: 88.8vw;
+    }
+    
+    .cardProd {
+        width: 39.6vw;
+        height: 50vw;
+        margin: 2.4vw;
+    }
 
-.cardProd {
-    width: 16.5vw;
-    min-width: 23vh;
-    display: flex;
-    height: 32.1vh;
-    position: relative;
-    max-height: 20vw;
-    background-color: white;
-    border-radius: 0 20px 0 20px;
-    box-shadow: 0 0 11px 1px #a9a6a6;
-    padding: 17px;
-    align-items: center;
-    justify-content: center;
-}
+    .cartFav{
+        top: 2.22vw;
+    }
+    
+    .cartFav i{
+        font-size: 5.2vw;
+    }
+    
+    .prodImg img{
+        height: 38.4vw;
+        margin-top: 2.16vw;
+    }
+    
+    .infoProd{
+        bottom: 2.22vw;
+    }
+    
+    .brand{
+        font-size: 3.06vw;
+    }
+    
+    .nameProd{
+        font-size: 1.74vw;
+    }
+    
+    .priceProd{
+        font-size: 3.48vw;
+    }
 
-.cartFav{
-    width: 90%;
-    display: flex;
-    color: #FF7170;
-    position: absolute;
-    top: 10px;
-    z-index: 1;
-    justify-content: space-between;
-}
-
-.cartFav i{
-    font-size: 30px;
-    cursor: pointer;
-}
-
-.prodImg{
-    width: 90%;
-    position: absolute;
-    display: flex;
-    top: 0;
-    align-items: center;
-    justify-content: center;
-}
-
-.prodImg img{
-    height: 26vh;
-    max-height: 16.2vw;
-}
-
-.infoProd{
-    width: 90%;
-    display: flex;
-    color: red;
-    position: absolute;
-    bottom: 10px;
-}
-
-
-.prodNameBrand{
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-}
-
-.brand{
-    font-style: normal;
-    font-weight: 700;
-    font-size: 1.27vw;
-}
-
-.nameProd{
-    font-style: normal;
-    font-weight: 400;
-    font-size: 0.725vw;
-    text-decoration: underline;
-}
-
-
-.priceProd{
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: black;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 1.45vw;
 }
