@@ -10,6 +10,11 @@ body{
     overflow-x: hidden;
 }
 
+a{
+    text-decoration: none;
+    color: black;
+}
+
 nav{
     width: 100vw;
     z-index: 2;

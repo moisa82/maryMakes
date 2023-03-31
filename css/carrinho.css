@@ -1,0 +1,245 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans';
+}
+
+body{
+    background-color: white;
+    overflow-x: hidden;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+nav{
+    background: linear-gradient(90deg, #FEE9E8 0%, #EFA8D4 100%);
+    width: 100vw;
+    z-index: 2;
+    min-height: 13.78vw;
+    max-height: 24.3vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background-color: #FEE9E8;
+    left: 0;
+    top: 0;
+    box-shadow: 0 0 70px -35px #B326CC;
+}
+
+ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 2px solid #B326CC;
+    border-bottom: 2px solid #B326CC;
+    width: 38.7%;
+    height: 4.1vw;
+    text-align: center;
+}
+
+ul li{
+    list-style: none;
+    font-size: 1.45vw;
+    cursor: pointer;
+    font-weight: 400;
+    min-width: 7em;
+}
+
+li:hover{
+    animation: liUp .1s forwards ease-out;
+}
+
+.carrinho{
+    border-bottom: 3px solid;
+    color: #B326CC;
+}
+
+@keyframes liUp {
+    from{
+        padding-bottom: 0;
+    }
+    to{
+        padding-bottom: 10px;
+    }
+}
+
+.logo{
+    height: 11vw;
+    cursor: pointer;
+}
+
+.logo:hover{
+    animation: logoShake 2.2s forwards ease-in-out;
+
+}
+
+/* logo shake animation */
+@keyframes logoShake {
+    0%{
+    }
+    20%{
+        rotate: 15deg;
+    }
+    40%{
+        rotate: -15deg;
+    }
+    60%{
+        rotate: 0;
+    }   
+    80%{
+        rotate: 5deg;
+    }
+    100%{
+        rotate: 0;
+    }
+}
+
+main{
+    margin-top: 16.78vw;
+    background-color: white;
+    height: 100vh;
+}
+
+main h1{
+    padding-left: 5.6vw;
+    font-size: 2.65vw;
+    color: #DB00FF;
+    gap: 1vw;
+    text-decoration-line: underline;
+    margin-bottom: 2vw;
+}
+
+.top{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.top h6{
+    font-size: 0.66vw;
+    width: 7vw;
+    text-align: center;
+    margin-right: 3.7vw;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.36);
+    font-weight: 500;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    gap: 3vw;
+    align-items: center;
+}
+
+.container h5{
+    font-family: monospace;
+    font-size: 5.4vw;
+    color: #3A0706;
+    cursor: pointer;
+}
+
+.product{
+    border: 0.627943px solid rgba(0, 0, 0, 0.3);
+    border-radius: 9.41915px;
+    display: flex;
+    width: 82.8vw;
+    height: 13.5vw;
+    margin: auto;
+    align-items: center;
+    margin-bottom: 1.65vw;
+}
+
+.product img{
+    height: 11.5vw;
+    margin-left: 2vw;
+}
+
+.product h2{
+    font-size: 2.65vw;
+    letter-spacing: -0.025em;
+    font-weight: 500;
+}
+
+.product p{
+    font-size: 0.66vw;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.36);
+    font-weight: 500;
+}
+
+.middle{
+    gap: 1.7vw;
+    display: flex;
+    flex-direction: column;
+    margin-left: 1.65vw;
+}
+
+.middle_bottom{
+    display: flex;
+}
+
+.middle_bottom p{
+    font-size: 3.8vw;
+    color: black;
+}
+
+.right{
+    display: flex;
+    height: 100%;
+    gap: 0.7vw;
+    position: absolute;
+    right: 13vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.quantity{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5.2vw;
+    height: 5.7vw;
+    border: 0.627943px solid rgba(0, 0, 0, 0.3);
+    border-radius: 1vw;
+}
+
+.quantity p{
+    font-size: 3.3vw;
+    font-weight: 500;
+    color: black;
+}
+
+.shop{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.shop button{
+    width: 16.5vw;
+    height: 3.1vw;
+    border: none;
+    border-radius: 3vw;
+    font-size: 1.78vw;
+    color: white;
+    cursor: pointer;
+}
+
+.comprar{
+    background-color: #FF7170;
+    margin-right: 1vw;
+}
+
+.finalizar{
+    background-color: #B326CC;
+    margin-right: 11.6vw;
+}
+
+.finalizar button:hover, .comprar button:hover{
+    opacity: 0.8;
+}
