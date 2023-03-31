@@ -6,6 +6,8 @@
 }
 
 body{
+    min-height: 100vh;
+    position: relative;
     background-color: #FEE9E8;
     overflow-x: hidden;
 }
@@ -145,6 +147,7 @@ button{
 /* section of products */
 
 .containerProd{
+    padding-bottom: 12.5vw;
     width: 92.4vw;
     height: auto;
     margin: auto;
@@ -243,6 +246,42 @@ button{
     font-weight: 700;
     font-size: 1.45vw;
 }
+
+/* footer */
+
+footer{
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 7.5vw;
+    width: 100vw;
+    gap: 2.5vw;
+    background-color: #3A0706;
+    color: white;
+    margin-top: 5vw;
+}
+
+.local, .telefone, .instagram{
+    display: flex;
+    align-items: center;
+    gap: 0.6vw;
+}
+
+.local p{
+    border-bottom: 0.2vw solid;
+}
+
+footer i{
+    font-size: 2.4vw;
+}
+
+footer p{
+    font-size: 1.45vw;
+    font-weight: 400;
+}
+
 
 @media(max-width: 1000px){
     nav{

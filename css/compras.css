@@ -6,8 +6,22 @@
 }
 
 body{
+    min-height: 100vh;
+    position: relative;
     background-color: white;
     overflow-x: hidden;
+}
+
+.nav_mobile{
+    display: none;
+}
+
+.hidden{
+    visibility: hidden;
+}
+
+.nav_mobile p{
+    visibility: hidden;
 }
 
 a{
@@ -103,6 +117,7 @@ li:hover{
 }
 
 main{
+    padding-bottom: 14.5vw;
     margin-top: 16.78vw;
     background-color: white;
     height: 100vh;
@@ -230,4 +245,64 @@ main h1{
 
 button:hover{
     opacity: 0.8;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 7.5vw;
+    width: 100vw;
+    gap: 2.5vw;
+    background-color: #3A0706;
+    color: white;
+    margin-top: 5vw;
+}
+
+.local, .telefone, .instagram{
+    display: flex;
+    align-items: center;
+    gap: 0.6vw;
+}
+
+.local p{
+    border-bottom: 0.2vw solid;
+}
+
+footer i{
+    font-size: 2.4vw;
+}
+
+footer p{
+    font-size: 1.45vw;
+    font-weight: 400;
+}
+
+@media(max-width: 1000px){
+    nav{
+        display: none;
+    }
+
+    .nav_mobile{
+        z-index: 2;
+        top: 0;
+        background-color: #FF7170;
+        background: linear-gradient(270deg, #FEE9E8 0%, #FF7170 100%);
+        display: flex;
+        padding: 3.79vw;
+        position: fixed;
+        width: 100vw;
+        justify-content: space-between;
+    }
+
+    .nav_mobile img{
+        width: 4vw;
+    }
+
+    .nav_mobile p{
+        font-size: 4.3vw;
+        font-family: cursive;
+    }
 }
