@@ -14,3 +14,6 @@ const btnOpenMenu= document.querySelector('.closeMenuOpt')
 btnMenu.addEventListener('click', enterMenuMobile)
 btnOpenMenu.addEventListener('click', exitMenuMobile)
 
+
+
+

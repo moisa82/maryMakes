@@ -318,14 +318,13 @@ const addCart = (product, cartI) => {
     if(!cart.includes(product)){
         cart.push(product);
         cartI.classList = "fa fa-check"
-        console.log(cart)
     }else{
         cart.pop(product);
-        cartI.classList = 'fa-solid fa-cart-shopping'
-        console.log("tirou")
+        cartI.classList = 'fa-solid fa-cart-shopping'    
     }
     const cartNumber = document.querySelector('#carrinho')
     cartNumber.innerHTML=`Carrinho (${cart.length})`
+    sessionStorage.setItem('cartUser', JSON.stringify(cart));
 }
 
 
