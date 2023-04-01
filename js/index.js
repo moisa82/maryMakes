@@ -152,7 +152,7 @@ let currentTypeSearch = null
 let currentPriceSearch = null
 let currentCategorySearch = null
 
-const btnLanc= document.querySelectorAll('#btnLancamentos')
+const btnLanc= document.querySelector('#btnLancamentos')
 
 btnLanc.addEventListener('click', () => {
     currentTypeSearch = 2
@@ -161,7 +161,7 @@ btnLanc.addEventListener('click', () => {
 }, false)
 
 
-const btnPromo = document.querySelectorAll('#btnPromo')
+const btnPromo = document.querySelector('#btnPromo')
 
 
 
@@ -172,7 +172,7 @@ btnPromo.addEventListener('click', () => {
 }, false)
 
 // BOTÃO DO CORRETIVO NAVBAR
-const btnCorretivo = document.querySelectorAll('#btnCorretivo')
+const btnCorretivo = document.querySelector('#btnCorretivo')
 
 btnCorretivo.addEventListener('click', () => {
     currentPriceSearch = null
@@ -193,7 +193,7 @@ btnBatom.addEventListener('click', () => {
 }, false)
 
 // BOTÃO DA BASE NAVBAR
-const btnBase = document.querySelectorAll('#btnBase')
+const btnBase = document.querySelector('#btnBase')
 
 btnBase.addEventListener('click', () => {
     currentPriceSearch = null
