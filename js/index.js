@@ -78,10 +78,13 @@ const productsFromAPI = JSON.parse(getProducts('https://marymakes-back-productio
 const clearFilter = () => {
     currentPriceSearch = null
     currentTypeSearch = null
-    deleteProds()
-    createProductCard(productsFromAPI)
-    let btnClearFilter = document.querySelector('.clearFilter')
+    if(currentCategorySearch==null){
+        deleteProds()
+        createProductCard(productsFromAPI)
+    }             
+    let btnClearFilter = document.querySelector('.clearFilter')   
     btnClearFilter.remove()
+   
 }
 
 //function to add btn clear filter in DOM
@@ -104,14 +107,25 @@ const addBtnClearFilter = () => {
 
 // function to filter products
 
-const FilterArray = (idTypeFilter = null, price = null) => {
+const FilterArray = (idTypeFilter = null, price = null, idCategoryFilter=null) => {
     let newArrayFilter = productsFromAPI
 
     if(idTypeFilter){
         newArrayFilter = productsFromAPI.filter((item) => item.tipo_id == idTypeFilter)
         if(price){
 
-            newArrayFilter = newArrayFilter.filter(item => item.preco <= price)
+            newArrayFilter = newArrayFilter.filter(item => Math.floor(item.preco) <= price)
+            deleteProds()
+            createProductCard(newArrayFilter)
+            addBtnClearFilter()
+        }
+        deleteProds()
+        createProductCard(newArrayFilter)
+        addBtnClearFilter()
+    }else if(idCategoryFilter){
+        newArrayFilter = productsFromAPI.filter((item) => item.categoria_id == idCategoryFilter)
+        if(price){
+            newArrayFilter = newArrayFilter.filter(item => Math.floor(item.preco) <= price)
             deleteProds()
             createProductCard(newArrayFilter)
             addBtnClearFilter()
@@ -141,19 +155,55 @@ const FilterArray = (idTypeFilter = null, price = null) => {
 
 let currentTypeSearch = null
 let currentPriceSearch = null
+let currentCategorySearch = null
 
 const btnLanc= document.querySelector('#btnLancamentos')
 
 btnLanc.addEventListener('click', () => {
     currentTypeSearch = 2
-    FilterArray(currentTypeSearch, currentPriceSearch)
+    currentCategorySearch=null
+    FilterArray(currentTypeSearch, currentPriceSearch, currentCategorySearch)
 }, false)
 
 const btnPromo = document.querySelector('#btnPromo')
 
 btnPromo.addEventListener('click', () => {
     currentTypeSearch = 3
-    FilterArray(currentTypeSearch, currentPriceSearch)
+    currentCategorySearch=null;
+    FilterArray(currentTypeSearch, currentPriceSearch, currentCategorySearch)
+}, false)
+
+// BOTÃO DO CORRETIVO NAVBAR
+const btnCorretivo = document.querySelector('#btnCorretivo')
+
+btnCorretivo.addEventListener('click', () => {
+    currentPriceSearch = null
+    currentTypeSearch = null
+    currentCategorySearch = 3
+    FilterArray(currentTypeSearch, currentPriceSearch,currentCategorySearch)
+    clearFilter();
+}, false)
+
+// BOTÃO DO BATOM NAVBAR
+const btnBatom = document.querySelector('#btnBatom')
+
+btnBatom.addEventListener('click', () => {
+    currentPriceSearch = null
+    currentTypeSearch = null
+    currentCategorySearch = 2
+    FilterArray(currentTypeSearch, currentPriceSearch,currentCategorySearch)
+    clearFilter();
+}, false)
+
+// BOTÃO DA BASE NAVBAR
+const btnBase = document.querySelector('#btnBase')
+
+btnBase.addEventListener('click', () => {
+    currentPriceSearch = null
+    currentTypeSearch = null
+    currentCategorySearch = 1
+    FilterArray(currentTypeSearch, currentPriceSearch,currentCategorySearch)
+    clearFilter();
 }, false)
 
 const btnFilter = document.querySelector('.btnFilter')
@@ -161,12 +211,8 @@ const inpPriceValue = document.querySelector('#priceInp')
 
 btnFilter.addEventListener('click', () => {
     currentPriceSearch = inpPriceValue.value
-    FilterArray(currentTypeSearch, currentPriceSearch)
+    FilterArray(currentTypeSearch, currentPriceSearch, currentCategorySearch)
 })
-
-
-
-
 
 
 //function that create products cards
@@ -220,12 +266,12 @@ const createProductCard = (arrayrod) => {
         prodPrices.classList = 'prodPrices'
 
         let spanPriceOff = document.createElement('span')
-        spanPriceOff.classList = 'priceOff'
-        spanPriceOff.textContent = `R$${product.preco}`
+        spanPriceOff.classList = 'priceOff'   
+        spanPriceOff.textContent = `R$${parseFloat(product.preco).toFixed(2)}`
 
         let spanPriceProd = document.createElement('span')
         spanPriceProd.classList = 'priceProd'
-        spanPriceProd.textContent = `R$${product.preco - (product.preco *(product.desconto/100))}`
+        spanPriceProd.textContent = `R$${parseFloat(product.preco - (product.preco *(product.desconto/100))).toFixed(2)}`
 
         if(product.desconto != 0){
             prodPrices.append(spanPriceOff, spanPriceProd)
