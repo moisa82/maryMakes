@@ -1,3 +1,4 @@
+
 // products stock
 const stock = [
     {
@@ -176,3 +177,7 @@ const itemQuantity = (id, value) => {
 let toLoad = stock
 
 onload = createItemCart(toLoad)
+
+let cart = JSON.parse(sessionStorage.getItem('cartUser'));
+
+const carregarCarrinho = ()=>{
