@@ -226,7 +226,7 @@ const createProductCard = (arrayrod) => {
         let cartI = document.createElement('i')
         cartI.classList = 'fa-solid fa-cart-shopping'
         cartI.title = 'adicionar ao carrinho'
-        cartI.addEventListener('click', addCart)
+        cartI.addEventListener('click', function(){addCart(product, cartI)})
 
         let heartI = document.createElement('i')
         heartI.classList = 'fa-regular fa-heart'
@@ -312,10 +312,20 @@ const addFav = (e) => {
     
 }
 
+let cart = []
 // function to add to cart
-const addCart = () => {
-    /* code here */
-    console.log('add cart')
+const addCart = (product, cartI) => {     
+    if(!cart.includes(product)){
+        cart.push(product);
+        cartI.classList = "fa fa-check"
+        console.log(cart)
+    }else{
+        cart.pop(product);
+        cartI.classList = 'fa-solid fa-cart-shopping'
+        console.log("tirou")
+    }
+    const cartNumber = document.querySelector('#carrinho')
+    cartNumber.innerHTML=`Carrinho (${cart.length})`
 }
 
 
@@ -372,3 +382,5 @@ inpPriceRange.addEventListener('input', (event) => {
 
 // initializing the function for crete the elements in HTML
 createProductCard(productsFromAPI) 
+
+ 
