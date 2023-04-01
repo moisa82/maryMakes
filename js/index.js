@@ -87,6 +87,7 @@ const clearFilter = () => {
     
     let btnClearFilter = document.querySelector('.clearFilter')   
     btnClearFilter.remove()
+    updateAvailableBrands(productsFromAPI)
            
 }
 
