@@ -1,19 +1,16 @@
-const Uls = document.querySelectorAll('nav ul')
-let HideShow = false
+const mobileMenuOpt = document.querySelector('.mobileMenuOpt')
 
-const hideAndShowMenu = () => {
-    if(HideShow === false){
-        Uls[0].style.animation = 'enterMenu .8s forwards ease-in-out';
-        Uls[1].style.animation = 'enterMenu .8s forwards ease-in-out';
-        HideShow = true;
-    }else if(HideShow === true){
-        Uls[0].style.animation = 'exitMenu .0s forwards ease-in-out'
-        Uls[1].style.animation = 'exitMenu .0s forwards ease-in-out'
-        HideShow = false;
-    }
+const enterMenuMobile = () => {
+        mobileMenuOpt.style.animation = 'enterMenu .8s forwards ease-in-out';
 }
 
+const exitMenuMobile = () => {
+    mobileMenuOpt.style.animation = 'exitMenu .8s forwards ease-in-out'
+}
 
-const btnMenu = document.querySelector('.fa-solid', '.fa-bars')
+const btnMenu = document.querySelector('.mobileMenuBar')
+const btnOpenMenu= document.querySelector('.closeMenuOpt')
 
-btnMenu.addEventListener('click', hideAndShowMenu)
+btnMenu.addEventListener('click', enterMenuMobile)
+btnOpenMenu.addEventListener('click', exitMenuMobile)
+
