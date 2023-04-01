@@ -103,6 +103,10 @@ li:hover{
     }
 }
 
+.mobileMenuOpt{
+    display: none;
+}
+
 
 /* section offer */
 
