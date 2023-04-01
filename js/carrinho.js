@@ -66,9 +66,9 @@ const stock = [
 
 const cart = document.querySelector('.container')
 
-const createItemCart = (array) => {
+const createItemCart = (_cartList) => {
     deleteAllItensCart()
-    array.forEach(stock => {
+    _cartList.forEach(stock => {
         let container = document.createElement('div')
         container.classList = 'container'
 
@@ -79,7 +79,7 @@ const createItemCart = (array) => {
         product.classList = 'product'
 
         let imgProd = document.createElement('img')
-        imgProd.src = stock.img
+        imgProd.src = stock.imagens
 
         product.append(imgProd)
 
@@ -87,13 +87,13 @@ const createItemCart = (array) => {
         middle.classList = 'middle'
 
         let middleH2 = document.createElement('h2')
-        middleH2.textContent = stock.name
+        middleH2.textContent = stock.nome
 
         let middleBottom = document.createElement('div')
         middleBottom.classList = 'middle_bottom'
 
         let middleBottomP = document.createElement('p')
-        middleBottomP.textContent = `R$ ${stock.price}`
+        middleBottomP.textContent = `R$ ${stock.preco}`
 
         middleBottom.append(middleBottomP)
 
@@ -175,9 +175,7 @@ const itemQuantity = (id, value) => {
 }
 
 let toLoad = stock
+let cartList = JSON.parse(sessionStorage.getItem('cartUser'));
+createItemCart(cartList)
 
-onload = createItemCart(toLoad)
 
-let cart = JSON.parse(sessionStorage.getItem('cartUser'));
-
-const carregarCarrinho = ()=>{
