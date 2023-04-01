@@ -154,21 +154,12 @@ let currentPriceSearch = null
 let currentCategorySearch = null
 
 const btnLanc= document.querySelectorAll('#btnLancamentos')
-btnLanc.forEach(e => {
-    e.addEventListener('click', () => {
-        currentTypeSearch = 2
-        currentCategorySearch=null
-        FilterArray(currentTypeSearch, currentPriceSearch, currentCategorySearch)
-    }, false)
-});
-
 
 btnLanc.addEventListener('click', () => {
     currentTypeSearch = 2
     currentCategorySearch=null
     FilterArray(currentTypeSearch, currentPriceSearch, currentCategorySearch,currentMarca)
 }, false)
-
 
 const btnPromo = document.querySelectorAll('#btnPromo')
 btnPromo.forEach(e => {
@@ -191,7 +182,6 @@ btnPromo.addEventListener('click', () => {
 // BOTÃO DO CORRETIVO NAVBAR
 const btnCorretivo = document.querySelectorAll('#btnCorretivo')
 
-
 btnCorretivo.addEventListener('click', () => {
     currentPriceSearch = null
     currentTypeSearch = null    
@@ -199,16 +189,7 @@ btnCorretivo.addEventListener('click', () => {
     FilterArray(currentTypeSearch, currentPriceSearch,currentCategorySearch, currentMarca)
 }, false)
 
-btnCorretivo.forEach(e => {
-    e.addEventListener('click', () => {
-        currentPriceSearch = null
-        currentTypeSearch = null
-        currentCategorySearch = 3
-        FilterArray(currentTypeSearch, currentPriceSearch,currentCategorySearch)
-        //clearFilter();
-    }, false)
-});
-
+const btnBatom = document.querySelector('#btnBatom')
 
 btnBatom.addEventListener('click', () => {
     currentPriceSearch = null
@@ -217,6 +198,7 @@ btnBatom.addEventListener('click', () => {
     FilterArray(currentTypeSearch, currentPriceSearch,currentCategorySearch, currentMarca)
 }, false)
 
+const btnBase = document.querySelector('#btnBase')
 btnBase.addEventListener('click', () => {
     currentPriceSearch = null
     currentTypeSearch = null
