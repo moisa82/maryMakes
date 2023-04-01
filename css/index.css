@@ -126,6 +126,31 @@ li:hover{
 .button{
     padding-left: 4.79vw;
     margin-top: 0.6vw;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.clearFilter{
+    color: #FF7170;
+    font-size: 1.8vw;
+    cursor: pointer;
+}
+
+.clearFilter:hover{
+    scale: 1.125;
+}
+
+.inpPrice{
+    display: flex;
+    align-items: center;
+    gap: .2em;
+    color: #a9a6a6;
+    box-shadow: 0 0 11px 1px #a9a6a6;
+    background-color: #FEE9E8;
+    padding: .6em;
+    border-radius: 3vw;
+    font-size: 1vw;
 }
 
 button{
@@ -215,19 +240,34 @@ button{
 }
 
 
-.prodNameBrand{
+.prodName{
     width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: left;
 }
 
-.brand{
-    font-style: normal;
-    font-weight: 700;
-    font-size: 1.27vw;
+.priceOff{
+    text-decoration: line-through;
 }
 
+.prodPrices{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.priceProd{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.45vw;
+}
 .nameProd{
     font-style: normal;
     font-weight: 400;

@@ -16,9 +16,9 @@
 <body>
     <nav>
         <ul>
-            <li>Lançamentos</li>
-            <li>Promoções</li>
-            <li>Categorias</li>
+            <li id="btnLancamentos">Lançamentos</li>
+            <li id="btnPromo">Promoções</li>
+            <li>Categorias <i class="fa-solid fa-chevron-down"></i></li>
         </ul>
 
         <img src="img/logotipo.png" alt="Logo mary makes" class="logo">
@@ -50,8 +50,13 @@
         <p>Os melhores preços em maquiagem e produtos de beleza da cidade!</p>
     </div>
 
-    <div class="button">
-        <button>Filtro<i class="fa-sharp fa-light fa-chevron-down"></i></button>
+     <div class="button">
+        <div class="inpPrice">
+            <p>Preço</p>
+            <input type="range" id="priceInp" min="1" max="100" value="1">
+            <span>R$ <output id="valuePrice">xx</output></span>
+        </div>
+        <button class="btnFilter">Filtrar</button>
     </div>
 
     <div class="containerProd">
