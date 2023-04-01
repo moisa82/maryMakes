@@ -305,4 +305,66 @@ footer p{
         font-size: 4.3vw;
         font-family: cursive;
     }
+
+    /* mobile menu style */
+
+.mobileMenuOpt{
+    position: fixed;
+    top: 0;
+    left: -100%;
+    z-index: 100;
+    height: 100vh;
+    width: 60vw;
+    background-color: #FF7170;
+    box-shadow: 2px 0 11px 1px grey;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 2em 0;
 }
+
+.closeMenuOpt{
+    width: 1em;
+    height: 100%;
+    background-color: #26262634;
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.closeMenuOpt i{
+    opacity: 0.3;
+}
+
+@keyframes enterMenu {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(160%);
+    }
+}
+
+@keyframes exitMenu {
+    from{
+        transform: translateX(160%);
+    }
+    to{
+        transform: translateX(0);
+    }
+    
+}
+
+.mobileMenuOpt li{
+    list-style: none;
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: .5em;
+}
+}
+
