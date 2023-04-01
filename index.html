@@ -37,8 +37,13 @@
         <ul>
             <li><a href="./compras.html">Compras</a></li>
             <li>Favoritos</li>
-            <li><a href="./carrinho.html">Carrinho</a></li>
-
+            <li>
+                <a href="./carrinho.html">
+                    <div id="carrinho">
+                        Carrinho (0)                    
+                    </div>
+                </a>
+            </li>
         </ul>
 
     </nav>
@@ -92,13 +97,24 @@
         <p>Os melhores preços em maquiagem e produtos de beleza da cidade!</p>
     </div>
 
-     <div class="button">
+    <div class="button">
         <div class="inpPrice">
             <p>Preço</p>
             <input type="range" id="priceInp" min="1" max="100" value="1">
             <span>R$ <output id="valuePrice">xx</output></span>
         </div>
         <button class="btnFilter">Filtrar</button>
+        <div class="dropdown-filter">        
+            <button class="btnFilter">
+                <p id="marcaPara">Marcas</p>
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">                
+                <div class="listMarcas">
+                    <!-- generated in index.js-->                    
+                </div>                
+            </div>
+        </div>
     </div>
 
     <div class="containerProd">

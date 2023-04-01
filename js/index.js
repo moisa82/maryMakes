@@ -78,12 +78,17 @@ const productsFromAPI = JSON.parse(getProducts('https://marymakes-back-productio
 const clearFilter = () => {
     currentPriceSearch = null
     currentTypeSearch = null
-    currentCategorySearch = null
+    currentCategorySearch= null
+    currentMarca="Todas"
+    changeParagraphName("Marcas");
+
     deleteProds()
-    createProductCard(productsFromAPI)           
+    createProductCard(productsFromAPI)            
+    
     let btnClearFilter = document.querySelector('.clearFilter')   
     btnClearFilter.remove()
-    
+    updateAvailableBrands(productsFromAPI)
+           
 }
 
 //function to add btn clear filter in DOM
@@ -102,50 +107,43 @@ const addBtnClearFilter = () => {
 
 }
 
+const changeParagraphName = (_name) => {
+    var paragraph = document.getElementById("marcaPara");
+    paragraph.innerHTML = _name;
+}
+
 // function to filter products
 
-const FilterArray = (idTypeFilter = null, price = null, idCategoryFilter=null) => {
+const FilterArray = (idTypeFilter = null, price = null, idCategoryFilter=null, marcaName="Todas") => {
     let newArrayFilter = productsFromAPI
 
     if(idTypeFilter){
-        newArrayFilter = productsFromAPI.filter((item) => item.tipo_id == idTypeFilter)
-        if(price){
-
-            newArrayFilter = newArrayFilter.filter(item => Math.floor(item.preco) <= price)
-            deleteProds()
-            createProductCard(newArrayFilter)
-            addBtnClearFilter()
-        }
-        deleteProds()
-        createProductCard(newArrayFilter)
-        addBtnClearFilter()
-    }else if(idCategoryFilter){
-        newArrayFilter = productsFromAPI.filter((item) => item.categoria_id == idCategoryFilter)
-        if(price){
-            newArrayFilter = newArrayFilter.filter(item => Math.floor(item.preco) <= price)
-            deleteProds()
-            createProductCard(newArrayFilter)
-            addBtnClearFilter()
-        }
-        deleteProds()
-        createProductCard(newArrayFilter)
-        addBtnClearFilter()
+        newArrayFilter = newArrayFilter.filter((item) => item.tipo_id == idTypeFilter)
+                      
     }
-    else if(price){
-        newArrayFilter = newArrayFilter.filter(item => Math.floor(item.preco) <= price)
-        deleteProds()
-        createProductCard(newArrayFilter)
-        addBtnClearFilter()
+    if(idCategoryFilter){
+        newArrayFilter = newArrayFilter.filter((item) => item.categoria_id == idCategoryFilter)                
+    }        
+    if(price){
+        newArrayFilter = newArrayFilter.filter(item => Math.floor(item.preco) <= price)            
+    }
+    updateAvailableBrands(newArrayFilter) 
+    if(marcaName!="Todas"){
+        newArrayFilter = newArrayFilter.filter(item => item.marca == marcaName)    
+        changeParagraphName(marcaName);
+    }else{
+        changeParagraphName("Marcas");
+    }
+
         
-    }
-    else{
-        deleteProds()
-        createProductCard(newArrayFilter)
-        addBtnClearFilter()
-    }
+    addBtnClearFilter() 
+    deleteProds()  
+    createProductCard(newArrayFilter)  
 
-    
-
+    if(!idTypeFilter && !idCategoryFilter && !price && marcaName=="Todas"){
+        clearFilter();
+    }
+                       
 }
 
 //add functions to buttons on navbar
@@ -154,82 +152,69 @@ let currentTypeSearch = null
 let currentPriceSearch = null
 let currentCategorySearch = null
 
-const btnLanc= document.querySelectorAll('#btnLancamentos')
-btnLanc.forEach(e => {
-    e.addEventListener('click', () => {
-        currentTypeSearch = 2
-        currentCategorySearch=null
-        FilterArray(currentTypeSearch, currentPriceSearch, currentCategorySearch)
-    }, false)
-});
+const btnLanc= document.querySelector('#btnLancamentos')
+
+btnLanc.addEventListener('click', () => {
+    currentTypeSearch = 2
+    currentCategorySearch=null
+    FilterArray(currentTypeSearch, currentPriceSearch, currentCategorySearch,currentMarca)
+}, false)
 
 
-const btnPromo = document.querySelectorAll('#btnPromo')
-btnPromo.forEach(e => {
-    e.addEventListener('click', () => {
-        currentTypeSearch = 3
-        currentCategorySearch=null;
-        FilterArray(currentTypeSearch, currentPriceSearch, currentCategorySearch)
-    }, false)
-});
+const btnPromo = document.querySelector('#btnPromo')
 
 
+
+btnPromo.addEventListener('click', () => {
+    currentTypeSearch = 3
+    currentCategorySearch=null;
+    FilterArray(currentTypeSearch, currentPriceSearch, currentCategorySearch, currentMarca)
+}, false)
 
 // BOTÃO DO CORRETIVO NAVBAR
-const btnCorretivo = document.querySelectorAll('#btnCorretivo')
+const btnCorretivo = document.querySelector('#btnCorretivo')
 
-btnCorretivo.forEach(e => {
-    e.addEventListener('click', () => {
-        currentPriceSearch = null
-        currentTypeSearch = null
-        currentCategorySearch = 3
-        FilterArray(currentTypeSearch, currentPriceSearch,currentCategorySearch)
-        //clearFilter();
-    }, false)
-});
-
+btnCorretivo.addEventListener('click', () => {
+    currentPriceSearch = null
+    currentTypeSearch = null    
+    currentCategorySearch = 3
+    FilterArray(currentTypeSearch, currentPriceSearch,currentCategorySearch, currentMarca)
+}, false)
 
 
 // BOTÃO DO BATOM NAVBAR
-const btnBatom = document.querySelectorAll('#btnBatom')
+const btnBatom = document.querySelector('#btnBatom')
 
-btnBatom.forEach(e => {
-    e.addEventListener('click', () => {
-        currentPriceSearch = null
-        currentTypeSearch = null
-        currentCategorySearch = 2
-        FilterArray(currentTypeSearch, currentPriceSearch,currentCategorySearch)
-        //clearFilter();
-    }, false)
-});
+btnBatom.addEventListener('click', () => {
+    currentPriceSearch = null
+    currentTypeSearch = null
+    currentCategorySearch = 2
+    FilterArray(currentTypeSearch, currentPriceSearch,currentCategorySearch, currentMarca)
+}, false)
 
 // BOTÃO DA BASE NAVBAR
-const btnBase = document.querySelectorAll('#btnBase')
+const btnBase = document.querySelector('#btnBase')
 
-btnBase.forEach(e => {
-    e.addEventListener('click', () => {
-        currentPriceSearch = null
-        currentTypeSearch = null
-        currentCategorySearch = 1
-        FilterArray(currentTypeSearch, currentPriceSearch,currentCategorySearch)
-        //clearFilter();
-    }, false)
-});
-
+btnBase.addEventListener('click', () => {
+    currentPriceSearch = null
+    currentTypeSearch = null
+    currentCategorySearch = 1
+    FilterArray(currentTypeSearch, currentPriceSearch,currentCategorySearch, currentMarca)
+}, false)
 
 const btnFilter = document.querySelector('.btnFilter')
 const inpPriceValue = document.querySelector('#priceInp')
 
 btnFilter.addEventListener('click', () => {
     currentPriceSearch = inpPriceValue.value
-    FilterArray(currentTypeSearch, currentPriceSearch, currentCategorySearch)
+    FilterArray(currentTypeSearch, currentPriceSearch, currentCategorySearch, currentMarca)
 })
 
 
 //function that create products cards
 
 const createProductCard = (arrayrod) => {
-
+    console.log(arrayrod)
     arrayrod.forEach(product => {
         
         let cardProd = document.createElement('div')
@@ -241,7 +226,7 @@ const createProductCard = (arrayrod) => {
         let cartI = document.createElement('i')
         cartI.classList = 'fa-solid fa-cart-shopping'
         cartI.title = 'adicionar ao carrinho'
-        cartI.addEventListener('click', addCart)
+        cartI.addEventListener('click', function(){addCart(product, cartI)})
 
         let heartI = document.createElement('i')
         heartI.classList = 'fa-regular fa-heart'
@@ -327,10 +312,20 @@ const addFav = (e) => {
     
 }
 
+let cart = []
 // function to add to cart
-const addCart = () => {
-    /* code here */
-    console.log('add cart')
+const addCart = (product, cartI) => {     
+    if(!cart.includes(product)){
+        cart.push(product);
+        cartI.classList = "fa fa-check"
+        console.log(cart)
+    }else{
+        cart.pop(product);
+        cartI.classList = 'fa-solid fa-cart-shopping'
+        console.log("tirou")
+    }
+    const cartNumber = document.querySelector('#carrinho')
+    cartNumber.innerHTML=`Carrinho (${cart.length})`
 }
 
 
@@ -340,6 +335,39 @@ const showProductModal = () => {
     /* code here */
 }
 
+//update brands avaliable to be filtered
+let marcasArray = []
+const containerMarcas = document.querySelector('.listMarcas')
+let currentMarca = "Todas";
+const updateAvailableBrands = (arrayprods) => {
+    containerMarcas.replaceChildren();
+    let newArrayFilter2 = arrayprods
+    marcasArray = []
+    marcasArray.push("Todas")
+
+    newArrayFilter2.forEach(product => {
+        marcaProd = product.marca;        
+        if(!marcasArray.includes(marcaProd)){
+            marcasArray.push(marcaProd)
+        }                
+    })    
+
+    marcasArray.forEach(marca => {
+        let marcaOption = document.createElement('a')
+        marcaOption.id = `btn${String(marca).replace(/\s+/g, "")}`
+        marcaOption.innerText = marca
+        marcaOption.addEventListener('click', () => {
+            currentMarca = marca;
+            FilterArray(currentTypeSearch, currentPriceSearch,currentCategorySearch, currentMarca)            
+        })
+        containerMarcas.prepend(marcaOption) 
+        
+    })
+}
+
+
+//updateAvailableBrands
+updateAvailableBrands(productsFromAPI)
 
 // input range price of filter section
 
@@ -352,8 +380,7 @@ inpPriceRange.addEventListener('input', (event) => {
     outputPriceRange.textContent = event.target.value
 })
 
-
-
-
 // initializing the function for crete the elements in HTML
 createProductCard(productsFromAPI) 
+
+ 
