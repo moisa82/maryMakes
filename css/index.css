@@ -135,6 +135,10 @@ li:hover{
     gap: 1em;
 }
 
+.button i{
+    font-size: 2vw;
+}
+
 .clearFilter{
     color: #FF7170;
     font-size: 1.8vw;
@@ -155,6 +159,10 @@ li:hover{
     padding: .6em;
     border-radius: 3vw;
     font-size: 1vw;
+}
+
+.inpPrice input{
+    width: 13vw;
 }
 
 button{
@@ -236,6 +244,8 @@ button{
 }
 
 .infoProd{
+    justify-content: space-around;
+    align-items: center;
     width: 90%;
     display: flex;
     color: red;
@@ -245,6 +255,7 @@ button{
 
 
 .prodName{
+    text-transform: uppercase;
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -275,7 +286,7 @@ button{
 .nameProd{
     font-style: normal;
     font-weight: 400;
-    font-size: 0.725vw;
+    font-size: 1vw;
     text-decoration: underline;
 }
 
@@ -355,17 +366,44 @@ footer p{
         position: fixed;
         z-index: 100;
         height: 100vh;
-        width: 60vw;
+        width: 40vw;
         background-color: #FF7170;
         box-shadow: 2px 0 11px 1px grey;
         display: flex;
-        align-items: center;
         flex-direction: column;
-        gap: 10px;
-        padding: 2em 0;
         transform: translateX(-100%);
+        font-size: 2vw;
+        justify-content: flex-start;
+        align-items: center;
     }
 
+    .height{
+        height: 60vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .height div{
+        width: 40vw;
+    }
+
+    .height div:first-child{
+        margin-top: 4vw;
+    }
+
+    .categorias{
+        gap: 1.3vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .mobileMenuOpt li{
+        font-size: 3vw;
+    }
+    
     .closeMenuOpt{
         width: 1em;
         height: 100%;
@@ -449,10 +487,22 @@ footer p{
         width: 58vw;
     }
 
+    .inpPrice{
+        font-size: 1.8vw;
+    }
+
+    .inpPrice input{
+        width: 16vw;
+    }
+
     .button {
         padding-left: 6.8vw;
         margin-top: 3.6vw;
         margin-bottom: 0.6vw;
+    }
+
+    .button i{
+        font-size: 2.5vw;
     }
 
     button{
@@ -550,7 +600,7 @@ footer p{
     }
     
     .nameProd{
-        font-size: 0.87vw;
+        font-size: 1.2vw;
     }
     
     .priceProd{
@@ -575,10 +625,22 @@ footer p{
         width: 63vw;
     }
 
+    .inpPrice{
+        font-size: 3.6vw;
+    }
+
+    .inpPrice input{
+        width: 32vw;
+    }
+
     .button{
         padding-left: 8vw;
     }
     
+    .button i{
+        font-size: 4.5vw;
+    }
+
     button{
         gap: 1.44vw;
         width: 18vw;
@@ -618,7 +680,7 @@ footer p{
     }
     
     .nameProd{
-        font-size: 1.74vw;
+        font-size: 2.4vw;
     }
     
     .priceProd{

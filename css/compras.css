@@ -264,6 +264,7 @@ footer{
     background-color: #3A0706;
     color: white;
     margin-top: 5vw;
+    align-self: flex-end;
 }
 
 .local, .telefone, .instagram{
