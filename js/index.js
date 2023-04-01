@@ -314,7 +314,7 @@ const addFav = (e) => {
 
 let cart = []
 // function to add to cart
-const addCart = (product, cartI) => {     
+const addCart = (product, cartI) => {      
     if(!cart.includes(product)){
         cart.push(product);
         cartI.classList = "fa fa-check"

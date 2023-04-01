@@ -62,7 +62,7 @@ const stock = [
     },
 ]
 
-
+let precoTotal = 0;
 
 const cart = document.querySelector('.container')
 
@@ -101,6 +101,8 @@ const createItemCart = (_cartList) => {
 
         product.append(middle)
 
+        precoTotal+=parseFloat(stock.preco);
+
         let right = document.createElement('div')
         right.classList = 'right'
 
@@ -113,7 +115,8 @@ const createItemCart = (_cartList) => {
         let minus = document.createElement('i')
         minus.classList = 'fa-solid fa-minus'
         minus.addEventListener('click', () => {
-            itemQuantity(stock.id, -1)
+            itemQuantity(stock.id, -1, stock.preco)
+            
         })
 
         let quantity = document.createElement('div')
@@ -126,7 +129,8 @@ const createItemCart = (_cartList) => {
         let plus = document.createElement('i')
         plus.classList = 'fa-solid fa-plus'
         plus.addEventListener('click', () => {
-            itemQuantity(stock.id, 1)
+            itemQuantity(stock.id, 1, stock.preco)
+            
         })
 
         right.append(rightP)
@@ -148,6 +152,8 @@ const createItemCart = (_cartList) => {
 
         const cartItens = document.querySelector('.cartItens')
         cartItens.append(container)
+
+        atualizarPrecoTotal();
         });
 
 
@@ -165,17 +171,33 @@ while(cartItens.firstChild){
 
 //funtion to add or remove itens from a item
 
-const itemQuantity = (id, value) => {
+const itemQuantity = (id, value, preco) => {
     let item = document.getElementById(`item${id}`)
-    if(item.firstChild.textContent >= 0 && value == 1){
+    if(item.firstChild.textContent >= 1 && value == 1){
         item.firstChild.textContent = parseInt(item.firstChild.textContent) + 1
-    }else if(item.firstChild.textContent > 0 && value == -1){
+        precoTotal+=parseFloat(preco);
+    }else if(item.firstChild.textContent > 1 && value == -1){
         item.firstChild.textContent = parseInt(item.firstChild.textContent) - 1
+        precoTotal-=parseFloat(preco);
     }
+    atualizarPrecoTotal();
+}
+const precoValue = document.getElementById("preco")
+const atualizarPrecoTotal = () => {
+    precoValue.innerHTML = `Preço total: R$${parseFloat(precoTotal).toFixed(2)}`
+
 }
 
 let toLoad = stock
 let cartList = JSON.parse(sessionStorage.getItem('cartUser'));
 createItemCart(cartList)
+
+const finishBtn = document.querySelector('#finish')
+finishBtn.addEventListener('click', ()=>{
+    if(Object.keys(cartList).length>0){
+        window.location.href = "./compras.html";
+    }
+    
+})
 
 
