@@ -32,6 +32,10 @@ li a{
     color: black;
 }
 
+.mobileMenuOpt{
+    display: none;
+}
+
 nav{
     background: linear-gradient(90deg, #FEE9E8 0%, #EFA8D4 100%);
     width: 100vw;
